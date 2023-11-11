@@ -58,7 +58,7 @@ def main():
         st_slope_radio = st.radio("Odchylenie odcinka ST", list(st_slope_d.keys()),
                                   format_func=lambda x: st_slope_d[x])
 
-        fasting_bs_radio = st.radio("Odchylenie odcinka ST", list(fasting_bs_d.keys()),
+        fasting_bs_radio = st.radio("Cukier we krwi na czczo", list(fasting_bs_d.keys()),
                                   format_func=lambda x: fasting_bs_d[x])
     with right:
         age_slider = st.slider("Wiek",
