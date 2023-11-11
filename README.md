@@ -1,5 +1,5 @@
-# SUML_z4
+# SUML_z4.2
 
 link:
 
-    https://sumlz4-z4rkbjjknwfxq5vf74on4y.streamlit.app/
+    https://sumlz42-kw8annp5dgbdiykhzhbdnf.streamlit.app/
