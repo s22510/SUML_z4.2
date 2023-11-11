@@ -25,7 +25,7 @@ sex_d = {0: "Mezczyzna", 1: "Kobieta", }
 chest_pain_type_d = {0: "ATA", 1: "NAP", 2: "ASY", 3: "TA"}
 resting_ecg_d = {0: "Normal", 1: "ST", 2: "LVH"}
 exercise_angina_d = {0: "Nie", 1: "Tak"}
-st_slope_d = {0: "Up", 1: "Flat", 2: "Down"}
+st_slope_d = {0: "Wysoko", 1: "Plasko", 2: "Nisko"}
 
 filename2 = "DSP_2.csv"
 base_data = pd.read_csv(filename2)
@@ -54,7 +54,7 @@ def main():
         exercise_angina_radio = st.radio("Angina Wysilkowa", list(exercise_angina_d.keys()),
                                          format_func=lambda x: exercise_angina_d[x])
 
-        st_slope_radio = st.radio("Angina Wysilkowa", list(st_slope_d.keys()),
+        st_slope_radio = st.radio("ST Slope", list(st_slope_d.keys()),
                                   format_func=lambda x: st_slope_d[x])
 
     with right:
