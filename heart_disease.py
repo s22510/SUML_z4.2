@@ -25,7 +25,8 @@ sex_d = {0: "Mezczyzna", 1: "Kobieta", }
 chest_pain_type_d = {0: "ATA", 1: "NAP", 2: "ASY", 3: "TA"}
 resting_ecg_d = {0: "Normal", 1: "ST", 2: "LVH"}
 exercise_angina_d = {0: "Nie", 1: "Tak"}
-st_slope_d = {0: "Wysoko", 1: "Plasko", 2: "Nisko"}
+st_slope_d = {0: "Wznoszący się", 1: "Poziomy", 2: "Opadający"}
+fasting_bs_d = {0: "Nie", 1: "TaK"}
 
 filename2 = "DSP_2.csv"
 base_data = pd.read_csv(filename2)
@@ -54,9 +55,11 @@ def main():
         exercise_angina_radio = st.radio("Angina Wysilkowa", list(exercise_angina_d.keys()),
                                          format_func=lambda x: exercise_angina_d[x])
 
-        st_slope_radio = st.radio("ST Slope", list(st_slope_d.keys()),
+        st_slope_radio = st.radio("Odchylenie odcinka ST", list(st_slope_d.keys()),
                                   format_func=lambda x: st_slope_d[x])
 
+        fasting_bs_radio = st.radio("Odchylenie odcinka ST", list(fasting_bs_d.keys()),
+                                  format_func=lambda x: fasting_bs_d[x])
     with right:
         age_slider = st.slider("Wiek",
                                min_value=int(base_data['Age'].min()),
@@ -72,11 +75,6 @@ def main():
                                        min_value=base_data['Cholesterol'].min(),
                                        max_value=base_data['Cholesterol'].max())
 
-        fasting_bs_slider = st.slider("Cukier we krwi na czczo",
-                                      value=1,
-                                      min_value=int(base_data['FastingBS'].min()),
-                                      max_value=int(base_data['FastingBS'].max()))
-
         max_hr_slider = st.slider("Maksymalne tętno",
                                   value=145,
                                   min_value=int(base_data['MaxHR'].min()),
@@ -87,7 +85,7 @@ def main():
                                     min_value=int(base_data['Oldpeak'].min()),
                                     max_value=int(base_data['Oldpeak'].max()))
 
-    data = [[age_slider, sex_radio, chest_pain_type_radio, resting_bp_slider, cholesterol_slider, fasting_bs_slider,
+    data = [[age_slider, sex_radio, chest_pain_type_radio, resting_bp_slider, cholesterol_slider, fasting_bs_radio,
              resting_ecg_radio, max_hr_slider, exercise_angina_radio, old_peak_slider, st_slope_radio]]
     survival = model.predict(data)
     s_confidence = model.predict_proba(data)
