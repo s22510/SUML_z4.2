@@ -59,27 +59,32 @@ def main():
 
     with right:
         age_slider = st.slider("Wiek",
-                               value=1,
+                               value=22,
                                min_value=int(base_data['Age'].min()),
                                max_value=int(base_data['Age'].max()))
 
         resting_bp_slider = st.slider("Spoczynkowe ciśnienie krwi",
+                                      value=80,
                                       min_value=base_data['RestingBP'].min(),
                                       max_value=base_data['RestingBP'].max())
 
         cholesterol_slider = st.slider("Cholesterol",
+                                       value=250,
                                        min_value=base_data['Cholesterol'].min(),
                                        max_value=base_data['Cholesterol'].max())
 
         fasting_bs_slider = st.slider("Cukier we krwi na czczo",
+                                      value=0,
                                       min_value=int(base_data['FastingBS'].min()),
                                       max_value=int(base_data['FastingBS'].max()))
 
         max_hr_slider = st.slider("Maksymalne tętno",
+                                  value=145,
                                   min_value=int(base_data['MaxHR'].min()),
                                   max_value=int(base_data['MaxHR'].max()))
 
         old_peak_slider = st.slider("Oldpeak",
+                                    value=-1,
                                     min_value=int(base_data['Oldpeak'].min()),
                                     max_value=int(base_data['Oldpeak'].max()))
 
