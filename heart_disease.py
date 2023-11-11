@@ -59,7 +59,6 @@ def main():
 
     with right:
         age_slider = st.slider("Wiek",
-                               value=22,
                                min_value=int(base_data['Age'].min()),
                                max_value=int(base_data['Age'].max()))
 
@@ -74,7 +73,7 @@ def main():
                                        max_value=base_data['Cholesterol'].max())
 
         fasting_bs_slider = st.slider("Cukier we krwi na czczo",
-                                      value=0,
+                                      value=1,
                                       min_value=int(base_data['FastingBS'].min()),
                                       max_value=int(base_data['FastingBS'].max()))
 
